@@ -77,3 +77,23 @@
 - AuthController.
 - POST /api/register endpoint.
 - REST Client API test.
+
+## Sprint 1 Day 4
+
+### Learned
+
+- Authentication flow in Laravel.
+- Laravel Sanctum token authentication.
+- User model traits.
+- Password verification using Hash::check().
+- API token generation.
+
+### Created
+
+- User login endpoint.
+- Sanctum authentication tokens.
+- Login API testing.
+
+### Problem Solved
+
+- Fixed createToken() error by adding HasApiTokens trait to User model.
