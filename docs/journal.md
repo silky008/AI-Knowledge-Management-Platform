@@ -115,3 +115,21 @@
 ### Debugging
 
 - Fixed authentication issue caused by using an old token.
+
+## Sprint 1 Day 6
+
+### Learned
+
+- API logout flow.
+- Token revocation using Laravel Sanctum.
+- Current authenticated token handling.
+
+### Created
+
+- Logout API endpoint.
+- Token deletion functionality.
+
+### Tested
+
+- Logout success.
+- Old token rejection after logout.
