@@ -46,3 +46,18 @@
 - First custom route.
 - First controller.
 - User management controller foundation.
+
+## Sprint 1 Day 2
+
+### Learned
+
+- Models represent database tables.
+- Migrations define database changes.
+- User extends Authenticatable because Laravel authentication requires extra user behavior.
+- Passwords are stored as hashes.
+
+### Created
+
+- User status column.
+- User database documentation.
+- First database migration.
