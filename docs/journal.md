@@ -97,3 +97,21 @@
 ### Problem Solved
 
 - Fixed createToken() error by adding HasApiTokens trait to User model.
+
+## Sprint 1 Day 5
+
+### Learned
+
+- Sanctum authentication middleware.
+- Bearer token authentication.
+- Protected API routes.
+- How Laravel identifies users from tokens.
+
+### Created
+
+- GET /api/profile endpoint.
+- Protected user profile API.
+
+### Debugging
+
+- Fixed authentication issue caused by using an old token.
