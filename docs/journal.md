@@ -31,3 +31,18 @@
 - Checking environment before changing code.
 - Reviewing Git changes before commit.
 - Protecting secrets with .gitignore.
+
+## Sprint 1 Day 1
+
+### Learned
+
+- Laravel request starts from public/index.php.
+- Routes define application URLs.
+- Controllers contain application logic.
+- Artisan can generate Laravel classes.
+
+### Created
+
+- First custom route.
+- First controller.
+- User management controller foundation.
