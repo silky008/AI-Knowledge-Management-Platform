@@ -61,3 +61,19 @@
 - User status column.
 - User database documentation.
 - First database migration.
+
+## Sprint 1 Day 3
+
+### Learned
+
+- API routes are used for JSON communication.
+- Installed Laravel Sanctum for API authentication.
+- Created REST endpoint for user registration.
+- Used Laravel validation.
+- Stored passwords securely using hashing.
+
+### Created
+
+- AuthController.
+- POST /api/register endpoint.
+- REST Client API test.
