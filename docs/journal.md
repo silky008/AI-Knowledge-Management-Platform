@@ -133,3 +133,29 @@
 
 - Logout success.
 - Old token rejection after logout.
+
+## Sprint 2 Day 1
+
+### Sprint Goal
+
+Build the foundation for the Document Management module.
+
+### Completed
+
+- Created `documents` table migration.
+- Added foreign key relationship with `users`.
+- Created `Document` model.
+- Configured mass assignable (`$fillable`) attributes.
+- Added `User -> hasMany(Document)` relationship.
+- Added `Document -> belongsTo(User)` relationship.
+
+### Concepts Learned
+
+- One-to-Many relationships in Eloquent.
+- `foreignId()->constrained()->cascadeOnDelete()`.
+- Difference between model relationships and query execution.
+
+### Interview Learning
+
+- Why pagination is preferred over loading thousands of records.
+- Difference between `$user->documents` and `$user->documents()`.
