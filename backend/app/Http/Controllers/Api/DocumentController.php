@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 
 class DocumentController extends Controller
 {
-    //
+
     public function store(Request $request)
     {
         $validated = $request->validate([
@@ -32,5 +32,15 @@ class DocumentController extends Controller
             'message'  => 'Document uploaded successfully',
             'document' => $document,
         ], 201);
+    }
+
+    public function index(Request $request)
+    {
+        $documents = $request->user()
+            ->documents()
+            ->latest()
+            ->paginate(10);
+
+        return response()->json($documents);
     }
 }

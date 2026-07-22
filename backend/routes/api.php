@@ -17,5 +17,5 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::get('/profile', [AuthController::class, 'profile']);
     Route::post('/logout', [AuthController::class, 'logout']);
     Route::post('/documents', [DocumentController::class, 'store']);
-
+    Route::get('/documents', [DocumentController::class, 'index']);
 });
