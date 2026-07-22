@@ -159,3 +159,32 @@ Build the foundation for the Document Management module.
 
 - Why pagination is preferred over loading thousands of records.
 - Difference between `$user->documents` and `$user->documents()`.
+
+## Sprint 2 Day 2
+
+### Sprint Goal
+
+Implement document upload functionality.
+
+### Completed
+
+- Created document upload API.
+- Added file validation.
+- Stored uploaded files using Laravel Storage.
+- Saved document metadata in PostgreSQL.
+- Tested successful uploads.
+
+### Concepts Learned
+
+- PHP temporary upload directory.
+- Laravel UploadedFile object.
+- Laravel Storage facade.
+- Difference between `file_name` and `file_path`.
+- Why production systems store files with generated names.
+
+### Interview Learning
+
+- File uploads involve two systems:
+  - File Storage
+  - Database
+- Both must remain consistent.
