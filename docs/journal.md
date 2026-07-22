@@ -188,3 +188,26 @@ Implement document upload functionality.
   - File Storage
   - Database
 - Both must remain consistent.
+
+## Sprint 2 Day 3
+
+### Completed
+
+- Created document listing API.
+- Implemented pagination.
+- Listed only authenticated user's documents.
+- Ordered documents by latest upload.
+
+### Concepts Learned
+
+- latest()
+- paginate()
+- Why not use Document::all()
+- User data isolation
+- Query Builder
+
+### Code Review Feedback
+
+- Avoid magic numbers.
+- Use relationships where appropriate.
+- API responses should eventually use Resources.
