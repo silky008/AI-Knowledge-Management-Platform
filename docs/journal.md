@@ -227,3 +227,28 @@ Implement document upload functionality.
 - Authentication vs Authorization
 - HTTP 403 vs 404
 - Debugging API endpoints
+
+## Sprint 2 Day 5
+
+### Sprint Goal
+
+Implement secure document deletion.
+
+### Completed
+
+- Added DELETE /api/documents/{document}.
+- Deleted document from storage.
+- Deleted database record.
+- Prevented unauthorized deletion.
+
+### Concepts Learned
+
+- HTTP DELETE
+- Storage facade
+- Keeping filesystem and database consistent
+- Orphaned files
+- Authorization before destructive actions
+
+### Interview Learning
+
+Deleting data from multiple systems (database and filesystem) requires careful ordering because database transactions cannot roll back filesystem changes.
