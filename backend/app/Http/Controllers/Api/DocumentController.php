@@ -43,4 +43,11 @@ class DocumentController extends Controller
 
         return response()->json($documents);
     }
+    public function show(Request $request, Document $document)
+    {
+        if ($document->user_id !== $request->user()->id) {
+            abort(403);
+        }
+        return response()->json($document);
+    }
 }
