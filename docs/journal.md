@@ -211,3 +211,19 @@ Implement document upload functionality.
 - Avoid magic numbers.
 - Use relationships where appropriate.
 - API responses should eventually use Resources.
+
+## Sprint 2 Day 4
+
+### Completed
+
+- Implemented document details API.
+- Used Route Model Binding.
+- Added authorization check to prevent access to other users' documents.
+- Tested successful and unauthorized access.
+
+### Concepts Learned
+
+- Route Model Binding
+- Authentication vs Authorization
+- HTTP 403 vs 404
+- Debugging API endpoints
