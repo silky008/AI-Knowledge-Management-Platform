@@ -1,0 +1,3 @@
+DELETE http://127.0.0.1:8000/api/documents/1
+Authorization: Bearer 8|fSvSj8SJ52ePWkZC2QGY3Mco4zS30wJqXJEv9pnua180c9c5
+Accept: application/json

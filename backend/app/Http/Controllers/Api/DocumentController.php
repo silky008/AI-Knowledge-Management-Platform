@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Api;
 use App\Http\Controllers\Controller;
 use App\Models\Document;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class DocumentController extends Controller
 {
@@ -49,5 +50,20 @@ class DocumentController extends Controller
             abort(403);
         }
         return response()->json($document);
+    }
+
+    public function destroy(Request $request, Document $document)
+    {
+        if ($document->user_id !== $request->user()->id) {
+            abort(403);
+        }
+
+        Storage::delete($document->file_path);
+
+        $document->delete();
+
+        return response()->json([
+            'message' => 'Document deleted successfully',
+        ]);
     }
 }
