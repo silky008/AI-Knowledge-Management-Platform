@@ -277,3 +277,27 @@ Implement secure document download.
 ### Interview Learning
 
 Never expose physical storage paths. Use Laravel's Storage abstraction to improve security and make it easy to switch storage providers such as Amazon S3 in the future.
+
+## Sprint 2 Day 7
+
+### Sprint Goal
+
+Refactor document upload validation using Form Requests.
+
+### Completed
+
+- Created `StoreDocumentRequest`.
+- Moved validation rules out of the controller.
+- Used `$request->validated()` in the controller.
+- Verified valid and invalid upload requests.
+
+### Concepts Learned
+
+- Form Requests
+- Separation of Concerns
+- Single Responsibility Principle (SRP)
+- Authorization before validation
+
+### Interview Learning
+
+Form Requests improve maintainability by separating validation and authorization from business logic. They keep controllers focused on application behavior instead of request validation.
