@@ -252,3 +252,28 @@ Implement secure document deletion.
 ### Interview Learning
 
 Deleting data from multiple systems (database and filesystem) requires careful ordering because database transactions cannot roll back filesystem changes.
+
+## Sprint 2 Day 6
+
+### Sprint Goal
+
+Implement secure document download.
+
+### Completed
+
+- Added download endpoint for documents.
+- Restricted downloads to document owners.
+- Verified file existence before download.
+- Preserved original filename in download response.
+
+### Concepts Learned
+
+- Storage facade
+- Secure file downloads
+- Content-Disposition header
+- File existence checks
+- Storage abstraction
+
+### Interview Learning
+
+Never expose physical storage paths. Use Laravel's Storage abstraction to improve security and make it easy to switch storage providers such as Amazon S3 in the future.
