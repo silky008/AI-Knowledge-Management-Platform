@@ -2,6 +2,7 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\StoreDocumentRequest;
 use App\Models\Document;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
@@ -9,12 +10,9 @@ use Illuminate\Support\Facades\Storage;
 class DocumentController extends Controller
 {
 
-    public function store(Request $request)
+    public function store(StoreDocumentRequest $request)
     {
-        $validated = $request->validate([
-            'title'    => 'required|string|max:255',
-            'document' => 'required|file|mimes:pdf,doc,docx,txt|max:10240',
-        ]);
+        $validated = $request->validated();
 
         $file = $request->file('document');
 
