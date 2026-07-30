@@ -3,6 +3,7 @@ namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreDocumentRequest;
+use App\Http\Resources\DocumentResource;
 use App\Models\Document;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
@@ -29,7 +30,7 @@ class DocumentController extends Controller
 
         return response()->json([
             'message'  => 'Document uploaded successfully',
-            'document' => $document,
+            'document' => new DocumentResource($document),
         ], 201);
     }
 
@@ -40,14 +41,14 @@ class DocumentController extends Controller
             ->latest()
             ->paginate(10);
 
-        return response()->json($documents);
+        return DocumentResource::collection($documents);
     }
     public function show(Request $request, Document $document)
     {
         if ($document->user_id !== $request->user()->id) {
             abort(403);
         }
-        return response()->json($document);
+        return new DocumentResource($document);
     }
 
     public function destroy(Request $request, Document $document)

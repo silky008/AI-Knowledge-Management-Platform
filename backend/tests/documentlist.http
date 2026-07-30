@@ -1,5 +1,5 @@
 ### List Documents
 
 GET http://127.0.0.1:8000/api/documents
-Authorization: Bearer 6|xfGAVzEVNZ69QPHrEjLmR5CAn4TdKZ1nfafGjWJMa587b1ca
+Authorization: Bearer 9|cDiUhXbykHynZZEUWBrEiUn7FnHjoCmNRCdYPx4Pba2ad056
 Accept: application/json
