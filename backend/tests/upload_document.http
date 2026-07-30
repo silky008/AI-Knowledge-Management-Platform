@@ -1,7 +1,7 @@
 ### Upload Document
 
 POST http://127.0.0.1:8000/api/documents
-Authorization: Bearer 5|1wvUUkhporFKRxyplZIG5EnogM7ueD6B8lXD4ArGcf0a8a70
+Authorization: Bearer 9|cDiUhXbykHynZZEUWBrEiUn7FnHjoCmNRCdYPx4Pba2ad056
 Content-Type: multipart/form-data; boundary=----WebKitFormBoundary7MA4YWxkTrZu0gW
 
 ------WebKitFormBoundary7MA4YWxkTrZu0gW

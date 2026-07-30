@@ -1,0 +1,5 @@
+### Download Document
+
+GET http://127.0.0.1:8000/api/documents/2/download
+Authorization: Bearer 9|cDiUhXbykHynZZEUWBrEiUn7FnHjoCmNRCdYPx4Pba2ad056
+Accept: application/octet-stream

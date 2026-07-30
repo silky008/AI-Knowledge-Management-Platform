@@ -66,4 +66,23 @@ class DocumentController extends Controller
             'message' => 'Document deleted successfully',
         ]);
     }
+
+    public function download(Request $request, Document $document)
+    {
+
+        if ($document->user_id !== $request->user()->id) {
+            abort(403);
+        }
+        $disk = Storage::disk('local');
+        if (! $disk->exists($document->file_path)) {
+            return response()->json([
+                'message' => 'File not found.',
+            ], 404);
+        }
+
+        return $disk->download(
+            $document->file_path,
+            $document->file_name
+        );
+    }
 }
