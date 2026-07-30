@@ -301,3 +301,27 @@ Refactor document upload validation using Form Requests.
 ### Interview Learning
 
 Form Requests improve maintainability by separating validation and authorization from business logic. They keep controllers focused on application behavior instead of request validation.
+
+## Sprint 2 Day 8
+
+### Sprint Goal
+
+Standardize API responses using Laravel API Resources.
+
+### Completed
+
+- Created `DocumentResource`.
+- Refactored document listing, upload, and detail APIs to use resources.
+- Hid internal fields such as `user_id` and `file_path`.
+- Verified consistent API responses.
+
+### Concepts Learned
+
+- API Resources
+- API Contracts
+- Data Transformation
+- Hiding Internal Implementation Details
+
+### Interview Learning
+
+API Resources decouple the API response from the database schema. This allows the backend to evolve without breaking frontend applications.
