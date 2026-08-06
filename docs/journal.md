@@ -325,3 +325,27 @@ Standardize API responses using Laravel API Resources.
 ### Interview Learning
 
 API Resources decouple the API response from the database schema. This allows the backend to evolve without breaking frontend applications.
+
+## Sprint 3 Day 1
+
+### Sprint Goal
+
+Refactor document upload business logic into a service class.
+
+### Completed
+
+- Created `DocumentService`.
+- Moved upload logic from the controller into the service.
+- Injected the service using Laravel's dependency injection.
+- Verified upload functionality after refactoring.
+
+### Concepts Learned
+
+- Service Classes
+- Dependency Injection
+- Separation of Concerns
+- Reusable Business Logic
+
+### Interview Learning
+
+Controllers should handle HTTP requests and responses, while service classes contain reusable business logic that can be called from controllers, jobs, commands, or other services.
