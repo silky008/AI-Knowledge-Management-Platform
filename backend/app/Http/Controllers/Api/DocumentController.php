@@ -5,28 +5,25 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreDocumentRequest;
 use App\Http\Resources\DocumentResource;
 use App\Models\Document;
+use App\Services\DocumentService;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
 class DocumentController extends Controller
 {
+    private DocumentService $documentService;
 
+    public function __construct(DocumentService $documentService)
+    {
+        $this->documentService = $documentService;
+    }
     public function store(StoreDocumentRequest $request)
     {
-        $validated = $request->validated();
-
-        $file = $request->file('document');
-
-        $path = $file->store('documents');
-
-        $document = Document::create([
-            'user_id'   => $request->user()->id,
-            'title'     => $validated['title'],
-            'file_name' => $file->getClientOriginalName(),
-            'file_path' => $path,
-            'file_type' => $file->getClientMimeType(),
-            'file_size' => $file->getSize(),
-        ]);
+        $document = $this->documentService->upload(
+            $request->user(),
+            $request->file('document'),
+            $request->validated()['title']
+        );
 
         return response()->json([
             'message'  => 'Document uploaded successfully',
