@@ -349,3 +349,19 @@ Refactor document upload business logic into a service class.
 ### Interview Learning
 
 Controllers should handle HTTP requests and responses, while service classes contain reusable business logic that can be called from controllers, jobs, commands, or other services.
+
+## Sprint 3 Day 2
+
+### Completed
+
+- Added database transaction to document upload.
+- Added rollback handling.
+- Removed uploaded file if an exception occurs.
+- Learned that database transactions do not affect the filesystem.
+
+### Concepts Learned
+
+- Database Transactions
+- Atomic Operations
+- Exception Handling
+- File Cleanup
