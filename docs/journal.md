@@ -365,3 +365,19 @@ Controllers should handle HTTP requests and responses, while service classes con
 - Atomic Operations
 - Exception Handling
 - File Cleanup
+
+## Sprint 3 Day 3
+
+### Completed
+
+- Reviewed Laravel 13 exception handling.
+- Confirmed API exceptions are rendered as JSON.
+- Tested an intentional service exception.
+- Verified database rollback.
+- Verified uploaded file cleanup.
+- Learned why services should throw exceptions instead of returning HTTP responses.
+- Reviewed custom exception rendering with GitHub Copilot.
+
+### Interview Learning
+
+Generic RuntimeException handling can be dangerous because unrelated application failures may receive the same error response. Specific application exceptions provide better control and clearer error handling.
