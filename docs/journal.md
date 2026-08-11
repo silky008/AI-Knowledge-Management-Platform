@@ -381,3 +381,23 @@ Controllers should handle HTTP requests and responses, while service classes con
 ### Interview Learning
 
 Generic RuntimeException handling can be dangerous because unrelated application failures may receive the same error response. Specific application exceptions provide better control and clearer error handling.
+
+## Sprint 3 Day 4
+
+### Completed
+
+- Added Laravel logging to DocumentService.
+- Added success logging after database commit.
+- Added failure logging for upload exceptions.
+- Verified success and failure logs.
+- Learned safe logging practices.
+- Avoided logging sensitive information such as tokens, passwords, and raw request data.
+- Reviewed logging implementation using GitHub Copilot.
+
+### Concepts Learned
+
+- Laravel Log facade
+- Log levels
+- Production logging
+- Safe diagnostic information
+- Logging after transaction commit
