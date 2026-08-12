@@ -1,6 +1,7 @@
 <?php
 namespace App\Services;
 
+use App\Jobs\ProcessDocument;
 use App\Models\Document;
 use App\Models\User;
 use Illuminate\Http\UploadedFile;
@@ -32,6 +33,7 @@ class DocumentService
                 'user_id'     => $user->id,
                 'document_id' => $document->id,
             ]);
+            ProcessDocument::dispatch($document);
             return $document;
         } catch (Throwable $e) {
 

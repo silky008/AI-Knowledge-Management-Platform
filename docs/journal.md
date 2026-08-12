@@ -401,3 +401,40 @@ Generic RuntimeException handling can be dangerous because unrelated application
 - Production logging
 - Safe diagnostic information
 - Logging after transaction commit
+
+## Sprint 3 Day 5
+
+### Completed
+
+- Created `ProcessDocument` queue job.
+- Passed the `Document` model to the queued job.
+- Added document processing logic inside the job's `handle()` method.
+- Configured the project to use the database queue connection.
+- Dispatched `ProcessDocument` after the document database transaction was committed.
+- Verified that the job was stored in the `jobs` table.
+- Started the Laravel queue worker using `php artisan queue:work`.
+- Verified that the worker processed the queued job successfully.
+- Verified that the processing log appeared in `storage/logs/laravel.log`.
+- Investigated a failed queue job using Laravel's `failed_jobs` table.
+- Fixed the missing `Log` facade import in `ProcessDocument`.
+
+### Concepts Learned
+
+- Laravel queue jobs
+- `ShouldQueue`
+- `dispatch()`
+- `queue:work`
+- Database queue driver
+- `jobs` table
+- `failed_jobs` table
+- Queue workers
+- Background processing
+- Difference between `sync` and `database` queue connections
+- Passing Eloquent models to queued jobs
+
+### Interview Learning
+
+- `dispatch()` places a job onto the queue.
+- `queue:work` starts a worker that processes queued jobs.
+- With the database driver, queued jobs are stored in the `jobs` table.
+- `sync` executes jobs immediately in the current request instead of processing them in the background.
