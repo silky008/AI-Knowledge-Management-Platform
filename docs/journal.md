@@ -438,3 +438,31 @@ Generic RuntimeException handling can be dangerous because unrelated application
 - `queue:work` starts a worker that processes queued jobs.
 - With the database driver, queued jobs are stored in the `jobs` table.
 - `sync` executes jobs immediately in the current request instead of processing them in the background.
+
+## Sprint 3 Day 6
+
+### Completed
+
+- Learned how Laravel handles failed queue jobs.
+- Tested `php artisan queue:failed`.
+- Learned how to retry a failed job using `php artisan queue:retry`.
+- Added `$tries = 3` to `ProcessDocument`.
+- Added `$backoff = 10` seconds.
+- Performed a controlled job failure test.
+- Verified the job was attempted 3 times.
+- Verified approximately 10 seconds between retry attempts.
+- Verified the failed job was eventually stored in `failed_jobs`.
+- Learned the difference between temporary and permanent job failures.
+- Learned that queue workers may need to be restarted after code changes.
+
+### Concepts Learned
+
+- Failed queue jobs
+- `failed_jobs`
+- `queue:failed`
+- `queue:retry`
+- `$tries`
+- `$backoff`
+- Automatic job retries
+- Temporary vs permanent failures
+- Long-running queue workers

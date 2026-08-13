@@ -9,6 +9,8 @@ use Illuminate\Support\Facades\Log;
 class ProcessDocument implements ShouldQueue
 {
     use Queueable;
+    public $tries   = 3;
+    public $backoff = 10; // in seconds
 
     /**
      * Create a new job instance.
@@ -24,6 +26,7 @@ class ProcessDocument implements ShouldQueue
     public function handle(): void
     {
         //
+
         Log::info('Processing document', [
             'document_id' => $this->document->id,
         ]);
