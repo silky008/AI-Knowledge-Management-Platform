@@ -26,15 +26,31 @@ class ProcessDocument implements ShouldQueue
      */
     public function handle(): void
     {
-        //
+        if ($this->document->status === 'processed') {
+            Log::info('Document already processed, skipping', [
+                'document_id' => $this->document->id,
+            ]);
+
+            return;
+        }
+
+        $this->document->update([
+            'status' => 'processing',
+        ]);
 
         Log::info('Processing document', [
             'document_id' => $this->document->id,
+        ]);
+        $this->document->update([
+            'status' => 'processed',
         ]);
     }
 
     public function failed(?Throwable $exception): void
     {
+        $this->document->update([
+            'status' => 'failed',
+        ]);
         Log::error('Document processing permanently failed', [
             'document_id' => $this->document->id,
             'exception'   => $exception ? get_class($exception) : null,

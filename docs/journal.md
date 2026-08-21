@@ -488,3 +488,30 @@ Generic RuntimeException handling can be dangerous because unrelated application
 - Idempotency
 - Duplicate processing
 - Safe retry design
+
+## Sprint 3 Day 8
+
+### Completed
+
+- Added document processing status tracking.
+- Added `status` column to documents.
+- Added `status` to Document model fillable fields.
+- Implemented processing lifecycle:
+  uploaded → processing → processed.
+- Added protection against reprocessing an already processed document.
+- Connected `failed()` to document status.
+- Implemented failure lifecycle:
+  uploaded → processing → failed.
+- Tested successful document processing.
+- Tested processing failure with 3 retries.
+- Verified permanent failure updates document status to `failed`.
+- Learned about race conditions when multiple workers process the same document.
+
+### Concepts Learned
+
+- Job idempotency
+- Processing state tracking
+- Job status lifecycle
+- Race conditions
+- Permanent failure handling
+- Retry + status interaction
