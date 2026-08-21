@@ -5,6 +5,7 @@ use App\Models\Document;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Foundation\Queue\Queueable;
 use Illuminate\Support\Facades\Log;
+use Throwable;
 
 class ProcessDocument implements ShouldQueue
 {
@@ -29,6 +30,14 @@ class ProcessDocument implements ShouldQueue
 
         Log::info('Processing document', [
             'document_id' => $this->document->id,
+        ]);
+    }
+
+    public function failed(?Throwable $exception): void
+    {
+        Log::error('Document processing permanently failed', [
+            'document_id' => $this->document->id,
+            'exception'   => $exception ? get_class($exception) : null,
         ]);
     }
 }

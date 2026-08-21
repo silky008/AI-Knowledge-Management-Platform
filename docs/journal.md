@@ -466,3 +466,25 @@ Generic RuntimeException handling can be dangerous because unrelated application
 - Automatic job retries
 - Temporary vs permanent failures
 - Long-running queue workers
+
+## Sprint 3 Day 7
+
+### Completed
+
+- Added and tested the `failed()` method in `ProcessDocument`.
+- Verified that `failed()` runs after all configured retry attempts are exhausted.
+- Logged permanent job failures safely.
+- Tested a permanently failing queued job.
+- Restored the job to normal successful processing.
+- Learned why queued jobs can execute more than once.
+- Learned the concept of idempotency.
+- Learned why retries can create duplicate records or side effects if a job is not idempotent.
+
+### Concepts Learned
+
+- `failed()` method
+- Permanent queue failure
+- Job retry lifecycle
+- Idempotency
+- Duplicate processing
+- Safe retry design
