@@ -26,24 +26,27 @@ class ProcessDocument implements ShouldQueue
      */
     public function handle(): void
     {
-        if ($this->document->status === 'processed') {
-            Log::info('Document already processed, skipping', [
+
+        $updated = Document::where('id', $this->document->id)
+            ->where('status', 'uploaded')
+            ->update([
+                'status' => 'processing',
+            ]);
+        if ($updated === 0) {
+            Log::info('Document is already being processed or processed', [
                 'document_id' => $this->document->id,
             ]);
 
             return;
         }
 
-        $this->document->update([
-            'status' => 'processing',
-        ]);
-
         Log::info('Processing document', [
             'document_id' => $this->document->id,
         ]);
-        $this->document->update([
-            'status' => 'processed',
-        ]);
+        Document::where('id', $this->document->id)
+            ->update([
+                'status' => 'processed',
+            ]);
     }
 
     public function failed(?Throwable $exception): void

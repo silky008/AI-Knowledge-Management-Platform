@@ -515,3 +515,25 @@ Generic RuntimeException handling can be dangerous because unrelated application
 - Race conditions
 - Permanent failure handling
 - Retry + status interaction
+
+## Sprint 3 Day 9
+
+### Completed
+
+- Learned about race conditions in queued jobs.
+- Identified the problem with separate status checks and updates.
+- Replaced the separate check/update with an atomic conditional update.
+- Ensured only one worker can claim a document from `uploaded` to `processing`.
+- Tested the normal document processing flow successfully.
+- Learned about the stale `processing` state when a worker crashes.
+- Learned why idempotency requires more than a simple status check.
+
+### Concepts Learned
+
+- Race conditions
+- Atomic conditional updates
+- Concurrent queue workers
+- Document claiming
+- Stale processing state
+- Locks and leases
+- Retry safety
