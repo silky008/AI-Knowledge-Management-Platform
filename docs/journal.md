@@ -537,3 +537,29 @@ Generic RuntimeException handling can be dangerous because unrelated application
 - Stale processing state
 - Locks and leases
 - Retry safety
+
+## Sprint 3 Day 10
+
+### Completed
+
+- Added `processing_started_at` to the documents table.
+- Added `processing_started_at` to the Document model.
+- Added datetime casting for `processing_started_at`.
+- Updated `ProcessDocument` to record when processing starts.
+- Clear `processing_started_at` after successful processing.
+- Clear `processing_started_at` after permanent job failure.
+- Tested the successful document processing flow.
+- Learned how to identify potentially stuck document processing.
+
+### Concepts Learned
+
+- Stale/stuck processing states
+- Processing timestamps
+- Job crash recovery
+- Queue worker failures
+- Tracking processing lifecycle
+- Difference between current status and actual processing activity
+
+### Interview Learning
+
+A `processing` status alone cannot tell whether a document is still being processed. A worker may crash while the status remains `processing`. `processing_started_at` allows the application to identify documents that have been processing for an unusually long time and may require recovery.

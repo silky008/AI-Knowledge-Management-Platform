@@ -30,8 +30,10 @@ class ProcessDocument implements ShouldQueue
         $updated = Document::where('id', $this->document->id)
             ->where('status', 'uploaded')
             ->update([
-                'status' => 'processing',
+                'status'                => 'processing',
+                'processing_started_at' => now(),
             ]);
+
         if ($updated === 0) {
             Log::info('Document is already being processed or processed', [
                 'document_id' => $this->document->id,
@@ -43,16 +45,19 @@ class ProcessDocument implements ShouldQueue
         Log::info('Processing document', [
             'document_id' => $this->document->id,
         ]);
+
         Document::where('id', $this->document->id)
             ->update([
-                'status' => 'processed',
+                'status'                => 'processed',
+                'processing_started_at' => null,
             ]);
     }
 
     public function failed(?Throwable $exception): void
     {
         $this->document->update([
-            'status' => 'failed',
+            'status'                => 'failed',
+            'processing_started_at' => null,
         ]);
         Log::error('Document processing permanently failed', [
             'document_id' => $this->document->id,

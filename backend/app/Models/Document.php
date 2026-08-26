@@ -14,6 +14,11 @@ class Document extends Model
         'file_type',
         'file_size',
         'status',
+        'processing_started_at',
+    ];
+
+    protected $casts = [
+        'processing_started_at' => 'datetime',
     ];
 
     public function user()
