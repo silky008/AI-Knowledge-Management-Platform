@@ -617,3 +617,27 @@ The `documents:recover-stale` command helps recover documents that remain in the
 The Laravel Scheduler determines when a task should run, while the Queue Worker processes jobs that have already been placed in the queue.
 
 In this project, the Scheduler runs `documents:recover-stale`, which finds stale documents and dispatches `ProcessDocument`. The Queue Worker then processes the dispatched job.
+
+## Sprint 3 Day 13
+
+### Completed
+
+- Identified a possible duplicate recovery race condition.
+- Updated stale document recovery to use a conditional database update.
+- Ensured recovery only happens when the document is still in the expected `processing` state.
+- Only dispatch `ProcessDocument` when the conditional update succeeds.
+- Tested stale document recovery successfully.
+- Ran the recovery command a second time and verified that the same document was not recovered again.
+
+### Concepts Learned
+
+- Race conditions
+- Conditional database updates
+- Atomic state transitions
+- Concurrent recovery processes
+- Duplicate job prevention
+- Database-level concurrency protection
+
+### Interview Learning
+
+A conditional update is safer than a normal model update when multiple processes may operate on the same document. The database only changes the document if it still matches the expected state. If another process has already changed it, the update affects zero rows, so the second process skips dispatching another job.

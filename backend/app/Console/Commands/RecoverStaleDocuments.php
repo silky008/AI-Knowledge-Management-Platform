@@ -22,10 +22,17 @@ class RecoverStaleDocuments extends Command
 
         foreach ($documents as $document) {
             // Reset the status to 'uploaded' and clear the processing_started_at timestamp
-            $document->update([
-                'status'                => 'uploaded',
-                'processing_started_at' => null,
-            ]);
+            $updated = Document::where('id', $document->id)
+                ->where('status', 'processing')
+                ->where('processing_started_at', '<', now()->subMinutes(30))
+                ->update([
+                    'status'                => 'uploaded',
+                    'processing_started_at' => null,
+                ]);
+
+            if ($updated === 0) {
+                continue;
+            }
 
             // Dispatch the job to process the document again
             ProcessDocument::dispatch($document);
