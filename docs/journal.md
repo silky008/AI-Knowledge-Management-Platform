@@ -590,3 +590,30 @@ A `processing` status alone cannot tell whether a document is still being proces
 ### Interview Learning
 
 The `documents:recover-stale` command helps recover documents that remain in the `processing` state after a worker failure. The `processing_started_at` timestamp tells us how long processing has been active, allowing the application to identify documents that have exceeded the expected processing threshold.
+
+## Sprint 3 Day 12
+
+### Completed
+
+- Learned about Laravel Scheduler.
+- Scheduled the `documents:recover-stale` Artisan command.
+- Configured the command to run every minute for testing.
+- Used `schedule:list` to inspect the scheduled task.
+- Used `schedule:work` to run the scheduler locally.
+- Tested automatic stale-document recovery.
+- Connected scheduled recovery with queued document processing.
+
+### Concepts Learned
+
+- Laravel Scheduler
+- Scheduled Artisan commands
+- `schedule:list`
+- `schedule:work`
+- Scheduler vs Queue Worker
+- Automatic stale-job recovery
+
+### Interview Learning
+
+The Laravel Scheduler determines when a task should run, while the Queue Worker processes jobs that have already been placed in the queue.
+
+In this project, the Scheduler runs `documents:recover-stale`, which finds stale documents and dispatches `ProcessDocument`. The Queue Worker then processes the dispatched job.
