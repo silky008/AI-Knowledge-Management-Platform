@@ -563,3 +563,30 @@ Generic RuntimeException handling can be dangerous because unrelated application
 ### Interview Learning
 
 A `processing` status alone cannot tell whether a document is still being processed. A worker may crash while the status remains `processing`. `processing_started_at` allows the application to identify documents that have been processing for an unusually long time and may require recovery.
+
+## Sprint 3 Day 11
+
+### Completed
+
+- Created the `documents:recover-stale` Artisan command.
+- Registered the command with Laravel.
+- Added detection for documents stuck in `processing`.
+- Used `processing_started_at` to identify potentially stale processing.
+- Reset stale documents from `processing` to `uploaded`.
+- Cleared `processing_started_at` during recovery.
+- Redispatched `ProcessDocument` for recovered documents.
+- Tested the recovery command successfully.
+- Simulated a worker crash by creating a stale processing state.
+
+### Concepts Learned
+
+- Artisan commands
+- Stale job recovery
+- Queue worker failure recovery
+- Processing timeouts
+- Automatic job redispatching
+- Operational recovery
+
+### Interview Learning
+
+The `documents:recover-stale` command helps recover documents that remain in the `processing` state after a worker failure. The `processing_started_at` timestamp tells us how long processing has been active, allowing the application to identify documents that have exceeded the expected processing threshold.
